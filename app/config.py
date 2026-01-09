@@ -1,8 +1,9 @@
-from pydantic import BaseSettings
+
+from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    APP_NAME: str = "FastAPI Sample App"
     ENVIRONMENT: str = "development"
+    DATABASE_URL: str
     PORT: int = 8000
 
     class Config:

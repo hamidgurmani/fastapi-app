@@ -1,6 +1,11 @@
-## FastAPI Application
 
-### Run locally
-```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000
+## FastAPI with PostgreSQL
+
+### Local run (without Docker)
+- Requires PostgreSQL
+- Update DATABASE_URL accordingly
+
+### API
+- GET /
+- GET /health
 
