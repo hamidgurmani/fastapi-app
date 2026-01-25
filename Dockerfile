@@ -26,9 +26,12 @@ COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
-RUN useradd -m appuser
+RUN useradd -m appuser \
+    && mkdir -p /data \
+    && chown -R appuser:appuser /data
 
 USER appuser
+
 
 ENTRYPOINT ["/entrypoint.sh"]
 
