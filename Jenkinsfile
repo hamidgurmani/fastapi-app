@@ -20,7 +20,12 @@ pipeline {
         stage('Run Container') {
             steps {
                 sh '''
-                docker run -d -p 8000:8000 --name fastapi_ci fastapi-app:ci
+                docker run -d \
+                -p 8000:8000 \
+                -e DATABASE_URL=sqlite:///./test.db \
+                --name fastapi_ci \
+                fastapi-app:ci
+
                 sleep 10
                 docker ps | grep fastapi_ci
                 '''
